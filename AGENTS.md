@@ -1,5 +1,17 @@
 # Aerial Views — AGENTS.md
 
+## Lighthouse fork (takes precedence for the custom app)
+- Read `LIGHTHOUSE.md`. Custom builds use `lighthouseDebug` / `lighthouseRelease`; use `betaDebug`
+  only in a separate, untouched upstream checkout for comparison.
+- Verify with `./gradlew :app:testLighthouseDebugUnitTest :app:lintKotlin :app:assembleLighthouseDebug`.
+  Run `:app:formatKotlin` before finishing Kotlin edits, then inspect the diff.
+- Keep custom identity/resources in `app/src/lighthouse` and preserve the upstream code namespace.
+- Preserve upstream licence and attribution; update the dated Lighthouse modification notice.
+- Do not use upstream Firebase configuration or signing keys for Lighthouse.
+- Do not change the TV's default screensaver as a side effect of build or preview checks.
+- Keep native Android Studio actions confined to the Lighthouse window; verify the window and
+  current control immediately before each action. Do not build, run or install other projects.
+
 Instructions for AI coding agents working on the Aerial Views project.
 
 ## Project at a glance

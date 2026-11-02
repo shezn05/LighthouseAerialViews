@@ -1,0 +1,6 @@
+# Copy to signing/lighthouse.properties and fill in locally. Never commit real values.
+# storeFile is relative to app/, or use an absolute path to your own keystore.
+storeFile=
+storePassword=
+keyAlias=
+keyPassword=

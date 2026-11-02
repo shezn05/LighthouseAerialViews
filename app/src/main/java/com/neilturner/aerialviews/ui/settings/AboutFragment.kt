@@ -34,7 +34,8 @@ class AboutFragment : MenuStateFragment() {
         date?.summary = buildDateSummary()
     }
 
-    private fun buildVersionSummary(): String = "Aerial Views ${BuildConfig.VERSION_NAME} (${BuildConfig.FLAVOR}.${BuildConfig.BUILD_TYPE})"
+    private fun buildVersionSummary(): String =
+        "${getString(R.string.app_name)} ${BuildConfig.VERSION_NAME} (${BuildConfig.FLAVOR}.${BuildConfig.BUILD_TYPE})"
 
     private fun buildDateSummary(): String {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy 'at' HH:mm", Locale.getDefault())

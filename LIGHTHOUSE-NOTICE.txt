@@ -1,0 +1,18 @@
+Lighthouse Aerial Views
+Independent modified version maintained by shezn05.
+Initial modifications: 2 November 2026.
+
+Based on Aerial Views 1.8.5 by Neil Turner:
+https://github.com/theothernt/AerialViews
+Originally based on Aerial Dream by Daniel Cachapa:
+https://github.com/cachapa/AerialDream
+
+Modifications add a distinct application ID, name, original lighthouse artwork,
+Projectivy identity, attribution and custom build/signing configuration. The custom
+flavor uses upstream's existing telemetry-free helper. Playback and screensaver
+implementation are preserved. No affiliation with or endorsement by the original
+authors is implied.
+
+This fork is distributed under GNU GPL version 3; see LICENSE. There is no warranty.
+Preserve existing copyright notices, attribution and third-party licences.
+Source: https://github.com/shezn05/LighthouseAerialViews

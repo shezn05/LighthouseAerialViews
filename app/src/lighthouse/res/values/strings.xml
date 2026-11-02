@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Lighthouse Aerial Views</string>
+    <string name="plugin_uuid" translatable="false">de2a47ab-0e67-53f8-bf64-c6cdfa2fe763</string>
+    <string name="lighthouse_about_title" translatable="false">Lighthouse Aerial Views</string>
+    <string name="lighthouse_about_summary" translatable="false">Independent fork by shezn05, based on Aerial Views 1.8.5 by Neil Turner and Aerial Dream by Daniel Cachapa. Identity and branding modified 2 November 2026. Licensed under GNU GPLv3; no warranty.</string>
+    <string name="lighthouse_source_title" translatable="false">Source code and licence</string>
+    <string name="lighthouse_source_summary" translatable="false">github.com/shezn05/LighthouseAerialViews\nOriginal: github.com/theothernt/AerialViews\nGNU General Public License v3: see LICENSE in the source repository. A copy is also bundled in this app’s assets.</string>
+</resources>

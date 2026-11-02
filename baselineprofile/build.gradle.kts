@@ -25,6 +25,9 @@ android {
 
     flavorDimensions += listOf("version")
     productFlavors {
+        create("lighthouse") {
+            dimension = "version"
+        }
         create("googleplay") {
             dimension = "version"
         }

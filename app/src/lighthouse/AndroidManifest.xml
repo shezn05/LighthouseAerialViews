@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lighthouse fork identity, modified 2026-11-02. Upstream components are preserved. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application
+        android:icon="@drawable/lighthouse_icon"
+        android:roundIcon="@drawable/lighthouse_icon"
+        android:banner="@drawable/lighthouse_banner"
+        tools:replace="android:icon,android:roundIcon,android:banner">
+        <service android:name=".services.projectivy.WallpaperProviderService"
+            android:icon="@drawable/lighthouse_icon"
+            android:banner="@drawable/lighthouse_banner"
+            tools:replace="android:icon,android:banner">
+            <!-- Metadata strings are not resolved against the code namespace. -->
+            <meta-data android:name="mainActivity"
+                android:value="com.neilturner.aerialviews.ui.MainActivity"
+                tools:replace="android:value" />
+        </service>
+    </application>
+</manifest>

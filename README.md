@@ -1,4 +1,28 @@
-# Aerial Views
+# Lighthouse Aerial Views
+
+Independent Android TV / Google TV screensaver fork maintained by **shezn05**, based on
+[Aerial Views](https://github.com/theothernt/AerialViews) by Neil Turner, originally based on
+[Aerial Dream](https://github.com/cachapa/AerialDream) by Daniel Cachapa.
+
+The custom version starts from upstream **1.8.5**, commit
+`59a1e6667e40c33eea66725cf0f4836cb1bac9c2`. Changes dated **2 November 2026** add an independent
+application identity, lighthouse artwork, attribution, and fork build setup. Playback and screensaver
+logic are preserved. The default custom variant is **lighthouseDebug**; the other flavors retain
+upstream identities and are not Lighthouse builds.
+
+See [LIGHTHOUSE.md](LIGHTHOUSE.md) for Android Studio setup, build commands, signing, exact screensaver
+component names, upstream updates, and verification requirements. This fork remains under the
+[GNU GPLv3 licence](LICENSE). When distributing binaries, provide the matching complete source and
+build instructions with the licence and notices; preserve all existing attribution. Media providers'
+videos and photos retain their own terms.
+
+The original project's documentation and credits follow. Its store/download links, package names,
+support links and examples refer to the **original Aerial Views app**. Use the Lighthouse component
+names in [LIGHTHOUSE.md](LIGHTHOUSE.md) for this fork.
+
+---
+
+# Aerial Views (upstream documentation)
 
 [![Latest GitHub release](https://img.shields.io/github/v/release/theothernt/AerialViews.svg?logo=github&label=GitHub&cacheSeconds=3600)](https://github.com/theothernt/AerialViews/releases/latest)
 [![Google Play Downloads](https://playbadges.pavi2410.com/badge/downloads?id=com.neilturner.aerialviews&pretty)](https://play.google.com/store/apps/details?id=com.neilturner.aerialviews)

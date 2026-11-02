@@ -103,6 +103,13 @@ android {
     }
 
     signingConfigs {
+        create("lighthouse") {
+            val releaseProps = loadProperties("signing/lighthouse.properties")
+            storeFile = releaseProps["storeFile"]?.let { file(it) }
+            storePassword = releaseProps["storePassword"] as String?
+            keyAlias = releaseProps["keyAlias"] as String?
+            keyPassword = releaseProps["keyPassword"] as String?
+        }
         create("release") {
             val releaseProps = loadProperties("signing/release.properties")
             storeFile = releaseProps["storeFile"]?.let { file(it) }
@@ -121,6 +128,19 @@ android {
 
     flavorDimensions += "version"
     productFlavors {
+        // Lighthouse fork: keep upstream namespaces and playback code unchanged.
+        create("lighthouse") {
+            dimension = "version"
+            isDefault = true
+            signingConfig = signingConfigs.getByName("lighthouse")
+            applicationId = "com.shezn05.lighthouseaerialviews"
+            versionNameSuffix = "-lighthouse.1"
+
+            // This flavor reuses the upstream F-Droid telemetry-free implementation.
+            extensions.configure<com.google.firebase.perf.plugin.FirebasePerfExtension> {
+                setInstrumentationEnabled(false)
+            }
+        }
         create("github") {
             signingConfig = signingConfigs.getByName("legacy")
             dimension = "version"
@@ -128,7 +148,7 @@ android {
         create("beta") {
             signingConfig = signingConfigs.getByName("legacy")
             dimension = "version"
-            isDefault = true
+            isDefault = false
             versionNameSuffix = betaVersion
         }
         create("googleplay") {
@@ -152,6 +172,7 @@ android {
 
     // Using this method https://stackoverflow.com/a/30548238/247257
     sourceSets {
+        getByName("lighthouse").kotlin.directories.add("src/fdroid/java")
         getByName("github").kotlin.directories.add("src/common/java")
         getByName("beta").kotlin.directories.add("src/common/java")
         getByName("googleplay").kotlin.directories.add("src/common/java")
@@ -163,6 +184,11 @@ android {
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
     }
+}
+
+// Lighthouse has no Firebase project; never process upstream's google-services.json.
+tasks.matching { it.name.matches(Regex("processLighthouse.*GoogleServices")) }.configureEach {
+    enabled = false
 }
 
 ksp {
