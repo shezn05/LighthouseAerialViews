@@ -91,7 +91,10 @@ class ScreenController(
     private var musicPlayer: MusicPlayer? = null
     private val overlayStateStore = OverlayStateStore()
     private val overlayEventBridge = OverlayEventBridge(overlayStateStore)
-    private val metadataResolver = MetadataResolver()
+    private val metadataResolver =
+        MetadataResolver(
+            videoLocationCaption = { media -> (context.applicationContext as? AerialApp)?.videoLocationCaption(media) },
+        )
 
     private val shouldAlternateOverlays = GeneralPrefs.alternateTextPosition
     private val overlayVisibilityMode = GeneralPrefs.overlayVisibility

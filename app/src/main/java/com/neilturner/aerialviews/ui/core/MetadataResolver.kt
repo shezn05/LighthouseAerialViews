@@ -15,6 +15,7 @@ import java.util.Locale
 
 internal class MetadataResolver(
     private val geocoderHelper: GeocoderHelper = GeocoderHelper,
+    private val videoLocationCaption: ((AerialMedia) -> String?)? = null,
 ) {
     data class ResolvedMetadata(
         val text: String,
@@ -50,8 +51,16 @@ internal class MetadataResolver(
         preferences: Preferences,
     ): ResolvedMetadata {
         val selection = parseSelection(preferences.videoSelection)
+        val locationCaption by lazy { videoLocationCaption?.invoke(media) }
 
         for (entry in selection) {
+            if ((entry == "POI" || entry == "DESC") && locationCaption != null) {
+                return ResolvedMetadata(
+                    text = locationCaption.orEmpty(),
+                    poi = emptyMap(),
+                    metadataType = MetadataType.STATIC,
+                )
+            }
             when (entry) {
                 "POI" -> {
                     if (hasUsablePoi(media)) {

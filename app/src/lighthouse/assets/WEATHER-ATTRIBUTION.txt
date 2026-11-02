@@ -5,6 +5,9 @@ https://creativecommons.org/licenses/by/4.0/
 Lighthouse displays modelled weather conditions and daily solar times. Temperature
 values are rounded, WMO weather codes are converted to descriptions/icons, and
 solar times are formatted for display. Data is not a house-level station reading.
+Hourly precipitation probabilities are summarized as the peak chance over the
+next six hourly intervals and the first contiguous window at or above 50%.
+This is not a six-hour combined probability or a minute-accurate rain countdown.
 
 API documentation: https://open-meteo.com/en/docs
 Geocoding: https://open-meteo.com/en/docs/geocoding-api

@@ -21,6 +21,17 @@ No build, test suite or TV interaction is required just to maintain this list.
 
 ## Pending comprehensive check
 
+- [ ] Install and verify lighthouse.3 (150) when authorized for the final batch; the installed .2
+      APK and its historical test results do not contain the new rain/caption changes.
+- [ ] Rain: confirm hourly probabilities arrive on the device; verify peak chance, the first
+      contiguous likely window, threshold, midnight/tomorrow labels and API offset handling.
+- [ ] Rain: check zero versus missing/invalid/partial/stale hours, failure recovery and refresh;
+      inspect three/four-line weather layout for overlap and legibility with the top-right clock.
+- [ ] Captions: inspect Apple, Amazon and both community sources/quality variants; city/state and
+      country, broad country-only locations, missing/ambiguous locations, and orbital clips.
+- [ ] Captions: check custom/local/network media with and without structured location data;
+      confirm original metadata is intact, dynamic narration no longer appears for description/POI
+      selection, and explicit filename/title/location selections and photos behave as before.
 - [ ] Record exact source revision, APK hash/version/signature, device and Android version.
 - [ ] Run the relevant custom unit tests, Kotlin formatting/lint and debug build; inspect changes.
 - [ ] Check upstream-flavor compatibility for shared edits and retained licence/attribution.
@@ -70,3 +81,12 @@ been performed to create this list. Preserve those results separately from the e
 ## Final batch results
 
 Not run. Await the user's instruction, then record results and evidence here.
+
+## Targeted local implementation checks — lighthouse.3
+
+2 November 2026: formatter and compilation for the selected unit-test task completed successfully.
+Only `RainOutlookTest`, `MeteoMapperTest`, `LighthouseCaptionsTest` and `MetadataResolverTest` were
+run: **38 passed, zero failed/errors/skipped**. This covers hourly-window alignment, midnight,
+missing/invalid data, caption formatting and the metadata callback/fallback path.
+No full suite, new APK assembly, installation, live weather request or TV interaction was performed
+for this update. Visual rendering and the comprehensive checks above remain pending.

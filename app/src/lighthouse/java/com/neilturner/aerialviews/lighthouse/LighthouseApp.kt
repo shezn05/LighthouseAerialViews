@@ -5,6 +5,7 @@ import com.neilturner.aerialviews.models.enums.ClockType
 import com.neilturner.aerialviews.models.enums.DateType
 import com.neilturner.aerialviews.models.enums.OverlayType
 import com.neilturner.aerialviews.models.prefs.GeneralPrefs
+import com.neilturner.aerialviews.models.videos.AerialMedia
 import com.neilturner.aerialviews.services.weather.WeatherProvider
 import com.neilturner.aerialviews.ui.AerialApp
 
@@ -38,4 +39,6 @@ class LighthouseApp : AerialApp() {
     }
 
     override fun createWeatherProvider(context: Context): WeatherProvider = OpenMeteoWeatherService()
+
+    override fun videoLocationCaption(media: AerialMedia): String = LighthouseCaptions.format(media)
 }

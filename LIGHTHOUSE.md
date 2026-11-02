@@ -2,6 +2,29 @@
 
 Independent fork by shezn05. Initial modifications dated 2 November 2026.
 
+## Rain outlook and short location captions — lighthouse.3
+
+Source version `1.8.5-lighthouse.3` (150) adds only the selected rain outlook from the ten proposals.
+It uses hourly precipitation probabilities from the existing [Open-Meteo forecast API](https://open-meteo.com/en/docs).
+Beneath the solar times, it shows the highest hourly chance across the next six hourly intervals
+and the first contiguous interval with at least a 50% chance. This is not the combined probability
+of rain during six hours or a minute-accurate countdown. API timestamps describe the preceding hour;
+the displayed window accounts for that and uses the API's local offset. Missing/invalid hours show
+"Rain outlook unavailable" without discarding available current weather or solar times.
+This shares the existing request, refresh, retry and lifecycle; no new service or account is added.
+
+Video description/point-of-interest captions become static **city, country**, or **region/state,
+country** when only a broader place is known. Structured city/state/country metadata takes priority;
+the bundled catalog supplies known places otherwise. Country-only captions are used when that is
+all the source establishes. Unidentified locations, ambiguous multinational regions and orbital
+footage have no location caption, rather than an invented city/country. Original metadata and
+timed points of interest remain stored; the custom flavor changes only their presentation. Explicit
+filename/title/location selections and photo metadata retain the existing resolution path.
+Upstream flavors keep their original description behavior via the default application hook.
+
+These source changes are awaiting the user's comprehensive check. No new APK has been installed
+on the TV. Track pending forecast, caption coverage and layout checks in `docs/LIGHTHOUSE-CHECKLIST.md`.
+
 ## Jost and Umhlanga layout — lighthouse.2
 
 Version `1.8.5-lighthouse.2` (149) bundles the complete original Jost static TTF family:
@@ -31,7 +54,7 @@ that service has no reverse geocoder, coordinate entries retain a GPS label inst
 city name. Existing forecast overlays use the same new provider. Weather data is CC BY 4.0 with
 attribution in About and bundled assets. Free API access is for non-commercial use; review the
 provider's terms before any commercial distribution. See `docs/LIGHTHOUSE-LIVE-INFO.md` for ten
-researched optional additions. Only the requested font/layout/weather changes are implemented.
+researched optional additions. Rain is the only additional live-info feature selected by the user.
 
 ## Source and identity
 

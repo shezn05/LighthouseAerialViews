@@ -81,6 +81,34 @@ internal class MetadataResolverTest {
         )
 
     @Test
+    fun `custom location caption replaces timed narrative without mutating source metadata`(): Unit =
+        runTest {
+            val media = createMedia(poi = mapOf(0 to "Flying above the city", 10 to "A famous bridge"), shortDesc = "London")
+            val customResolver = MetadataResolver(geocoderHelper, videoLocationCaption = { "London, United Kingdom" })
+            val result = customResolver.resolve(context, media, defaultPrefs)
+            assertEquals("London, United Kingdom", result.text)
+            assertEquals(MetadataType.STATIC, result.metadataType)
+            assertEquals(emptyMap<Int, String>(), result.poi)
+            assertEquals("Flying above the city", media.metadata.pointsOfInterest[0])
+        }
+
+    @Test
+    fun `blank custom caption does not fall back to a narrative or filename`(): Unit =
+        runTest {
+            val customResolver = MetadataResolver(geocoderHelper, videoLocationCaption = { "" })
+            val result = customResolver.resolve(context, createMedia(shortDesc = "Unknown reef"), defaultPrefs)
+            assertEquals("", result.text)
+        }
+
+    @Test
+    fun `explicit filename selection still works with a custom caption provider`(): Unit =
+        runTest {
+            val customResolver = MetadataResolver(geocoderHelper, videoLocationCaption = { "London, United Kingdom" })
+            val result = customResolver.resolve(context, createMedia(), defaultPrefs.copy(videoSelection = "FILENAME"))
+            assertEquals("video", result.text)
+        }
+
+    @Test
     fun `resolve video with POI uses dynamic metadata`(): Unit =
         runTest {
             val media =

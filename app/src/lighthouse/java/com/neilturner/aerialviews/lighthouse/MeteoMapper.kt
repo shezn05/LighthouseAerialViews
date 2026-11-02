@@ -4,6 +4,7 @@ import com.neilturner.aerialviews.R
 import com.neilturner.aerialviews.services.weather.ForecastDay
 import com.neilturner.aerialviews.services.weather.ForecastEvent
 import com.neilturner.aerialviews.services.weather.WeatherEvent
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -18,6 +19,7 @@ object MeteoMapper {
         city: String,
         fahrenheit: Boolean,
         today: LocalDate = LocalDate.now(ZoneId.of(response.timezone)),
+        now: Instant = Instant.now(),
     ): WeatherEvent? {
         val current = response.current ?: return null
         val temperature = current.temperature?.takeIf { it.isFinite() } ?: return null
@@ -31,7 +33,7 @@ object MeteoMapper {
             icon = icon(current.code, current.isDay == 1),
             wind = current.wind?.let { "${it.roundToInt()} km/h" } ?: "",
             humidity = current.humidity?.let { "$it%" } ?: "",
-            details = "Sunrise $sunrise   ·   Sunset $sunset",
+            details = "Sunrise $sunrise   ·   Sunset $sunset\n${RainOutlook.summary(response, now)}",
         )
     }
 

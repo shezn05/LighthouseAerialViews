@@ -11,6 +11,7 @@ import com.neilturner.aerialviews.models.prefs.AppleVideoPrefs
 import com.neilturner.aerialviews.models.prefs.Comm1VideoPrefs
 import com.neilturner.aerialviews.models.prefs.Comm2VideoPrefs
 import com.neilturner.aerialviews.models.prefs.GeneralPrefs
+import com.neilturner.aerialviews.models.videos.AerialMedia
 import com.neilturner.aerialviews.services.weather.WeatherProvider
 import com.neilturner.aerialviews.services.weather.WeatherService
 import com.neilturner.aerialviews.ui.helpers.DeviceHelper
@@ -19,6 +20,9 @@ import timber.log.Timber
 
 open class AerialApp : Application() {
     open fun createWeatherProvider(context: Context): WeatherProvider = WeatherService(context)
+
+    /** Null retains upstream descriptions and timed points of interest. */
+    open fun videoLocationCaption(media: AerialMedia): String? = null
 
     override fun onCreate() {
         super.onCreate()

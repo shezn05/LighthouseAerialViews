@@ -19,6 +19,7 @@ interface OpenMeteoApi {
         @Query("timezone") timezone: String = "auto",
         @Query("current") current: String = "temperature_2m,relative_humidity_2m,weather_code,is_day,wind_speed_10m",
         @Query("daily") daily: String = "sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min",
+        @Query("hourly") hourly: String = "precipitation_probability",
         @Query("forecast_days") days: Int = 7,
     ): Response<MeteoResponse>
 }
@@ -58,6 +59,14 @@ data class MeteoResponse(
     val timezone: String = "Africa/Johannesburg",
     val current: MeteoCurrent? = null,
     val daily: MeteoDaily = MeteoDaily(),
+    val hourly: MeteoHourly = MeteoHourly(),
+    @SerialName("utc_offset_seconds") val utcOffsetSeconds: Int? = null,
+)
+
+@Serializable
+data class MeteoHourly(
+    val time: List<String> = emptyList(),
+    @SerialName("precipitation_probability") val probability: List<Int?> = emptyList(),
 )
 
 @Serializable

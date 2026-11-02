@@ -1,6 +1,8 @@
 # Ten live-info ideas for Lighthouse
 
-Researched 2 November 2026. These are proposals, not implemented features. Each could be an
+Researched 2 November 2026. **Selection: rain outlook only.** Rain has been added to the
+`lighthouse.3` source; installation and comprehensive validation are deferred until requested.
+The other nine entries remain unselected proposals. Each could be an
 optional small overlay, refreshed only as often as its data changes.
 
 | # | Idea | What the TV could show | Data and practical requirements |

@@ -6,6 +6,9 @@ Lighthouse UI, fixed clock/date/weather layout and Open-Meteo weather with solar
 times for Umhlanga Rocks. The upstream weather provider remains available to
 the original build flavors. See bundled font and weather notices for their
 separate licences and attribution.
+Additional modifications, 2 November 2026 (lighthouse.3): hourly rain outlook
+and static city/region/country video captions for the custom flavor. Unknown
+locations are not guessed; original metadata is retained.
 
 Based on Aerial Views 1.8.5 by Neil Turner:
 https://github.com/theothernt/AerialViews

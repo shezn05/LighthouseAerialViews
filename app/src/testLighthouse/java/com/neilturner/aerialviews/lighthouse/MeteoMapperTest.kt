@@ -29,19 +29,19 @@ class MeteoMapperTest {
         assertEquals("Umhlanga Rocks", event.city)
         assertEquals("24°C", event.temperature)
         assertEquals("Light drizzle", event.summary)
-        assertEquals("Sunrise 05:00   ·   Sunset 18:18", event.details)
+        assertEquals("Sunrise 05:00   ·   Sunset 18:18\nRain outlook unavailable", event.details)
     }
 
     @Test
     fun `does not reuse previous day's solar times after midnight`() {
         val event = MeteoMapper.current(response, "Umhlanga Rocks", false, today.plusDays(1))!!
-        assertEquals("Sunrise 04:59   ·   Sunset 18:19", event.details)
+        assertEquals("Sunrise 04:59   ·   Sunset 18:19\nRain outlook unavailable", event.details)
     }
 
     @Test
     fun `missing solar times show dashes instead of invented values`() {
         val event = MeteoMapper.current(response.copy(daily = MeteoDaily()), "Umhlanga Rocks", false, today)!!
-        assertEquals("Sunrise —   ·   Sunset —", event.details)
+        assertEquals("Sunrise —   ·   Sunset —\nRain outlook unavailable", event.details)
     }
 
     @Test
@@ -49,7 +49,7 @@ class MeteoMapperTest {
         val daily = response.daily.copy(sunrise = listOf(null, "not a time"))
         val event = MeteoMapper.current(response.copy(daily = daily), "Umhlanga Rocks", false, today)!!
         assertEquals("24°C", event.temperature)
-        assertEquals("Sunrise —   ·   Sunset 18:18", event.details)
+        assertEquals("Sunrise —   ·   Sunset 18:18\nRain outlook unavailable", event.details)
     }
 
     @Test
