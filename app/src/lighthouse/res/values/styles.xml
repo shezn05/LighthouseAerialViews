@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The upstream resource name resolves to the bundled Jost family in this flavor. -->
+    <style name="DefaultTheme" parent="Theme.AppCompat">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/googlesans</item>
+        <item name="fontFamily">@font/googlesans</item>
+    </style>
+    <style name="OverlayText">
+        <item name="android:alpha">1</item>
+        <item name="android:fontFamily">@font/googlesans</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:shadowColor">#000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+    <style name="LoadingText" parent="OverlayText" />
+    <string-array name="text_font_entries" translatable="false"><item>Jost</item></string-array>
+    <string-array name="text_font_values" translatable="false"><item>jost</item></string-array>
+    <string name="text_font_default" translatable="false">jost</string>
+</resources>

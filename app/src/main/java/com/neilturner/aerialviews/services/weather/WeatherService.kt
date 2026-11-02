@@ -30,7 +30,7 @@ import kotlin.time.Duration.Companion.seconds
 class WeatherService(
     val context: Context,
     private val apiOverride: OpenWeatherApi? = null,
-) {
+) : WeatherProvider {
     private var updateJob: Job? = null
     private val maxRetries = 3
     private var totalUpdates = 0
@@ -52,7 +52,7 @@ class WeatherService(
                 .create(OpenWeatherApi::class.java)
     }
 
-    suspend fun lookupLocation(query: String): List<LocationResponse> =
+    override suspend fun lookupLocation(query: String): List<LocationResponse> =
         try {
             val key = BuildConfig.OPEN_WEATHER
             val language = WeatherLanguage.getLanguageCode(context)
@@ -88,7 +88,7 @@ class WeatherService(
             emptyList()
         }
 
-    suspend fun lookupLocationByCoordinates(
+    override suspend fun lookupLocationByCoordinates(
         lat: Double,
         lon: Double,
     ): List<LocationResponse> =
@@ -127,7 +127,7 @@ class WeatherService(
             emptyList()
         }
 
-    fun startUpdates(
+    override fun startUpdates(
         fetchCurrentWeather: Boolean,
         fetchForecast: Boolean,
     ) {
@@ -463,7 +463,7 @@ class WeatherService(
         icon: String,
     ): Int = WeatherIcons.getWeatherIcon(code, type, icon)
 
-    fun stop() {
+    override fun stop() {
         updateJob?.cancel()
         updateJob = null
         FirebaseHelper.analyticsEvent(
@@ -483,6 +483,7 @@ data class WeatherEvent(
     val city: String = "",
     val wind: String = "",
     val humidity: String = "",
+    val details: String = "",
 )
 
 data class ForecastDay(

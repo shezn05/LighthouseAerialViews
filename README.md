@@ -10,6 +10,10 @@ application identity, lighthouse artwork, attribution, and fork build setup. Pla
 logic are preserved. The default custom variant is **lighthouseDebug**; the other flavors retain
 upstream identities and are not Lighthouse builds.
 
+Current customizations: bundled Jost throughout menus and overlays, top-right time/day/date,
+and Umhlanga Rocks weather with sunrise/sunset at top left. Lighthouse weather uses Open-Meteo
+without an API key for personal use. See the current customization notes in [LIGHTHOUSE.md](LIGHTHOUSE.md).
+
 See [LIGHTHOUSE.md](LIGHTHOUSE.md) for Android Studio setup, build commands, signing, exact screensaver
 component names, upstream updates, and verification requirements. This fork remains under the
 [GNU GPLv3 licence](LICENSE). When distributing binaries, provide the matching complete source and

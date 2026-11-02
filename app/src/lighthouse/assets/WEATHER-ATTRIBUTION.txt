@@ -1,0 +1,11 @@
+Weather data by Open-Meteo: https://open-meteo.com/
+Data licence: Creative Commons Attribution 4.0 International
+https://creativecommons.org/licenses/by/4.0/
+
+Lighthouse displays modelled weather conditions and daily solar times. Temperature
+values are rounded, WMO weather codes are converted to descriptions/icons, and
+solar times are formatted for display. Data is not a house-level station reading.
+
+API documentation: https://open-meteo.com/en/docs
+Geocoding: https://open-meteo.com/en/docs/geocoding-api
+Free endpoint terms (personal/non-commercial use): https://open-meteo.com/en/terms

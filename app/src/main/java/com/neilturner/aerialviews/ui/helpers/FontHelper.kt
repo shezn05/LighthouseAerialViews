@@ -34,7 +34,7 @@ object FontHelper {
                         ResourcesCompat.getFont(context, R.font.opensans)
                     }
 
-                    "google-sans" -> {
+                    "google-sans", "jost" -> {
                         ResourcesCompat.getFont(context, R.font.googlesans)
                     }
 

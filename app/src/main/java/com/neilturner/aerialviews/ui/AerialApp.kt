@@ -1,6 +1,7 @@
 package com.neilturner.aerialviews.ui
 
 import android.app.Application
+import android.content.Context
 import android.os.StrictMode
 import android.os.StrictMode.VmPolicy
 import com.neilturner.aerialviews.BuildConfig
@@ -10,11 +11,15 @@ import com.neilturner.aerialviews.models.prefs.AppleVideoPrefs
 import com.neilturner.aerialviews.models.prefs.Comm1VideoPrefs
 import com.neilturner.aerialviews.models.prefs.Comm2VideoPrefs
 import com.neilturner.aerialviews.models.prefs.GeneralPrefs
+import com.neilturner.aerialviews.services.weather.WeatherProvider
+import com.neilturner.aerialviews.services.weather.WeatherService
 import com.neilturner.aerialviews.ui.helpers.DeviceHelper
 import com.neilturner.aerialviews.utils.LogcatCapture
 import timber.log.Timber
 
-class AerialApp : Application() {
+open class AerialApp : Application() {
+    open fun createWeatherProvider(context: Context): WeatherProvider = WeatherService(context)
+
     override fun onCreate() {
         super.onCreate()
         configureLogging()

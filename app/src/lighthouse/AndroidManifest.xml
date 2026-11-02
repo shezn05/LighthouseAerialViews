@@ -3,10 +3,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <application
+        android:name="com.neilturner.aerialviews.lighthouse.LighthouseApp"
         android:icon="@drawable/lighthouse_icon"
         android:roundIcon="@drawable/lighthouse_icon"
         android:banner="@drawable/lighthouse_banner"
-        tools:replace="android:icon,android:roundIcon,android:banner">
+        tools:replace="android:name,android:icon,android:roundIcon,android:banner">
         <service android:name=".services.projectivy.WallpaperProviderService"
             android:icon="@drawable/lighthouse_icon"
             android:banner="@drawable/lighthouse_banner"

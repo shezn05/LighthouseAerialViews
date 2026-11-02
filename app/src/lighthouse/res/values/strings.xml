@@ -6,4 +6,6 @@
     <string name="lighthouse_about_summary" translatable="false">Independent fork by shezn05, based on Aerial Views 1.8.5 by Neil Turner and Aerial Dream by Daniel Cachapa. Identity and branding modified 2 November 2026. Licensed under GNU GPLv3; no warranty.</string>
     <string name="lighthouse_source_title" translatable="false">Source code and licence</string>
     <string name="lighthouse_source_summary" translatable="false">github.com/shezn05/LighthouseAerialViews\nOriginal: github.com/theothernt/AerialViews\nGNU General Public License v3: see LICENSE in the source repository. A copy is also bundled in this app’s assets.</string>
+    <string name="lighthouse_data_title" translatable="false">Weather and typography credits</string>
+    <string name="lighthouse_data_summary" translatable="false">Weather data by Open-Meteo.com, CC BY 4.0. Personal, non-commercial API use. Modelled conditions refresh every 20 minutes.\nJost by indestructible type / Owen Earl, SIL Open Font License 1.1. The complete font licence is bundled in assets/JOST-OFL.txt.</string>
 </resources>

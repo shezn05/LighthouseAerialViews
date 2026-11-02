@@ -55,7 +55,7 @@ class WeatherNowOverlay
         }
 
         init {
-            orientation = HORIZONTAL
+            orientation = VERTICAL
             // Start visible by default. ScreenController owns auto-hide and will
             // fade this view when that feature is enabled.
             alpha = 1f
@@ -167,6 +167,7 @@ class WeatherNowOverlay
 
         private fun setupViews() {
             removeAllViews()
+            val row = LinearLayout(context).apply { orientation = HORIZONTAL }
             val iconSize = calculateIconSize(size)
             overlayItems.forEach { item ->
                 when (item) {
@@ -187,7 +188,7 @@ class WeatherNowOverlay
                             overlayItems.indexOf(item) > 0 &&
                                 overlayItems[overlayItems.indexOf(item) - 1] is OverlayItem.ImageItem
 
-                        if (isNotEmpty() && !previousItemIsImage) {
+                        if (row.isNotEmpty() && !previousItemIsImage) {
                             params.leftMargin = itemMargin
                         }
 
@@ -199,7 +200,7 @@ class WeatherNowOverlay
                         textView.layoutParams = params
 
                         Timber.d("Adding text view with text: ${item.text}")
-                        addView(textView)
+                        row.addView(textView)
                     }
 
                     is OverlayItem.ImageItem -> {
@@ -215,9 +216,19 @@ class WeatherNowOverlay
                         imageView.layoutParams = params
                         imageView.scaleType = ImageView.ScaleType.FIT_CENTER
 
-                        addView(imageView)
+                        row.addView(imageView)
                     }
                 }
+            }
+            addView(row)
+            previousWeather?.details?.takeIf { it.isNotBlank() }?.let { details ->
+                val detailView = TextView(context)
+                TextViewCompat.setTextAppearance(detailView, R.style.OverlayText)
+                detailView.text = details
+                detailView.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+                detailView.typeface = FontHelper.getTypeface(context, font, weight)
+                detailView.setPadding(0, (8 * resources.displayMetrics.density).toInt(), 0, 0)
+                addView(detailView)
             }
         }
 

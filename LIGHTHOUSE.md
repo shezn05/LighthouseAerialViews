@@ -2,6 +2,37 @@
 
 Independent fork by shezn05. Initial modifications dated 2 November 2026.
 
+## Jost and Umhlanga layout — lighthouse.2
+
+Version `1.8.5-lighthouse.2` (149) bundles the complete original Jost static TTF family:
+nine weights from 100 to 900, upright and italic. Menus, dialogs, loading text and screensaver
+overlays use Jost. Font files remain unmodified; the SIL OFL 1.1 licence and source hashes are
+bundled in `JOST-OFL.txt` and `JOST-SOURCE.txt` in the app assets. In this flavor, the upstream
+`googlesans` resource name resolves to Jost so existing font helpers keep working.
+
+The first launch after this update applies the requested layout once: weather for Umhlanga Rocks
+at top left, sunrise and sunset underneath, and the time, weekday and date at top right. The old
+bottom-left clock is moved; bottom-right video metadata remains. Automatic corner alternation is
+disabled to keep the requested positions fixed. A top gradient helps readability. Subsequent
+launches preserve settings changes rather than repeatedly overwriting them.
+
+Lighthouse uses Open-Meteo's key-free personal-use endpoint. The initial coordinates are the
+Umhlanga Rocks Suburb result from Open-Meteo geocoding (`-29.73941, 31.0765`). Weather is modelled
+for the surrounding grid, not a physical weather station at the user's house. Temperature is
+rounded for display. Sunrise/sunset use the location's timezone and today's date. Successful
+requests repeat every 20 minutes; failures show "Weather unavailable" and retry after 5 minutes.
+The screensaver owns and cancels the weather job, including any suspended network request.
+No OpenWeather key is needed for Lighthouse. The original provider remains the default for all
+upstream comparison flavors through a small `WeatherProvider` interface and application factory.
+The current-weather view gains an optional second details row, empty for the original provider.
+
+Weather location search uses Open-Meteo geocoding. Explicit coordinates remain supported; because
+that service has no reverse geocoder, coordinate entries retain a GPS label instead of inventing a
+city name. Existing forecast overlays use the same new provider. Weather data is CC BY 4.0 with
+attribution in About and bundled assets. Free API access is for non-commercial use; review the
+provider's terms before any commercial distribution. See `docs/LIGHTHOUSE-LIVE-INFO.md` for ten
+researched optional additions. Only the requested font/layout/weather changes are implemented.
+
 ## Source and identity
 
 - Fork: https://github.com/shezn05/LighthouseAerialViews
@@ -22,8 +53,8 @@ this also affects the optional upstream comparison flavors. Local logs remain av
 
 No screensaver lifecycle, playback, codecs, HDR detection, refresh rate, input, playlist, media
 source, storage or database behavior is intentionally changed. Shared About text now reads the
-app name from resources. Weather continues to require your own OpenWeather key in the ignored
-`secrets.properties` file (`openWeatherDebug` for debug; `openWeather` for release).
+app name from resources. The upstream comparison flavors still require your own OpenWeather key
+in the ignored `secrets.properties` file (`openWeatherDebug` for debug; `openWeather` for release).
 
 ## Android Studio
 
@@ -112,8 +143,9 @@ tag as the base of an update. For example, after fetching tags, merge the chosen
 branch based on `custom/lighthouse-aerial`, resolve conflicts there, and run all checks and TV tests
 before updating the custom branch. Do not reset or force-push the custom branch to upstream.
 
-Most custom resources live in `app/src/lighthouse`. Integration changes are limited to the build
-flavor, baseline profile flavor and resource-based About name. Review those few shared edits when
+Most custom resources and new weather logic live in `app/src/lighthouse`. Shared integration edits
+cover the build flavor, baseline profile flavor, resource-based About name, weather-provider factory,
+font helper and optional weather details row. Review those small shared edits when
 merging upstream updates. Do not trigger the upstream store-release workflow: it expects the
 original maintainer's signing infrastructure. A manual Lighthouse check workflow template is saved
 at `docs/lighthouse-checks.yml.example`. To enable it later, copy it to

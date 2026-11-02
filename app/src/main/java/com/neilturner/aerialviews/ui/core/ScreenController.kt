@@ -31,7 +31,8 @@ import com.neilturner.aerialviews.services.KtorServer
 import com.neilturner.aerialviews.services.MediaService
 import com.neilturner.aerialviews.services.MusicPlayer
 import com.neilturner.aerialviews.services.NowPlayingService
-import com.neilturner.aerialviews.services.weather.WeatherService
+import com.neilturner.aerialviews.services.weather.WeatherProvider
+import com.neilturner.aerialviews.ui.AerialApp
 import com.neilturner.aerialviews.ui.controls.ProgressBar
 import com.neilturner.aerialviews.ui.controls.ProgressBarEvent
 import com.neilturner.aerialviews.ui.controls.ProgressState
@@ -85,7 +86,7 @@ class ScreenController(
     private var isStopped = false
 
     private var nowPlayingService: NowPlayingService? = null
-    private var weatherService: WeatherService? = null
+    private var weatherService: WeatherProvider? = null
     private var ktorServer: KtorServer? = null
     private var musicPlayer: MusicPlayer? = null
     private val overlayStateStore = OverlayStateStore()
@@ -308,7 +309,7 @@ class ScreenController(
             val hasForecastOverlay = overlayHelper.findOverlay<WeatherForecastOverlay>().isNotEmpty()
             if (hasWeatherNowOverlay || hasForecastOverlay) {
                 weatherService =
-                    WeatherService(context).apply {
+                    (context.applicationContext as AerialApp).createWeatherProvider(context).apply {
                         startUpdates(
                             fetchCurrentWeather = hasWeatherNowOverlay,
                             fetchForecast = hasForecastOverlay,

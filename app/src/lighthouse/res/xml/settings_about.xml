@@ -9,5 +9,8 @@
         <Preference app:key="lighthouse_source"
             app:title="@string/lighthouse_source_title"
             app:summary="@string/lighthouse_source_summary" />
+        <Preference app:key="lighthouse_data"
+            app:title="@string/lighthouse_data_title"
+            app:summary="@string/lighthouse_data_summary" />
     </PreferenceCategory>
 </PreferenceScreen>

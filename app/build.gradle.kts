@@ -134,7 +134,8 @@ android {
             isDefault = true
             signingConfig = signingConfigs.getByName("lighthouse")
             applicationId = "com.shezn05.lighthouseaerialviews"
-            versionNameSuffix = "-lighthouse.1"
+            versionCode = 149
+            versionNameSuffix = "-lighthouse.2"
 
             // This flavor reuses the upstream F-Droid telemetry-free implementation.
             extensions.configure<com.google.firebase.perf.plugin.FirebasePerfExtension> {

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font android:font="@font/jost_100" android:fontWeight="100" android:fontStyle="normal" app:font="@font/jost_100" app:fontWeight="100" app:fontStyle="normal" />
+    <font android:font="@font/jost_100_italic" android:fontWeight="100" android:fontStyle="italic" app:font="@font/jost_100_italic" app:fontWeight="100" app:fontStyle="italic" />
+    <font android:font="@font/jost_200" android:fontWeight="200" android:fontStyle="normal" app:font="@font/jost_200" app:fontWeight="200" app:fontStyle="normal" />
+    <font android:font="@font/jost_200_italic" android:fontWeight="200" android:fontStyle="italic" app:font="@font/jost_200_italic" app:fontWeight="200" app:fontStyle="italic" />
+    <font android:font="@font/jost_300" android:fontWeight="300" android:fontStyle="normal" app:font="@font/jost_300" app:fontWeight="300" app:fontStyle="normal" />
+    <font android:font="@font/jost_300_italic" android:fontWeight="300" android:fontStyle="italic" app:font="@font/jost_300_italic" app:fontWeight="300" app:fontStyle="italic" />
+    <font android:font="@font/jost_400" android:fontWeight="400" android:fontStyle="normal" app:font="@font/jost_400" app:fontWeight="400" app:fontStyle="normal" />
+    <font android:font="@font/jost_400_italic" android:fontWeight="400" android:fontStyle="italic" app:font="@font/jost_400_italic" app:fontWeight="400" app:fontStyle="italic" />
+    <font android:font="@font/jost_500" android:fontWeight="500" android:fontStyle="normal" app:font="@font/jost_500" app:fontWeight="500" app:fontStyle="normal" />
+    <font android:font="@font/jost_500_italic" android:fontWeight="500" android:fontStyle="italic" app:font="@font/jost_500_italic" app:fontWeight="500" app:fontStyle="italic" />
+    <font android:font="@font/jost_600" android:fontWeight="600" android:fontStyle="normal" app:font="@font/jost_600" app:fontWeight="600" app:fontStyle="normal" />
+    <font android:font="@font/jost_600_italic" android:fontWeight="600" android:fontStyle="italic" app:font="@font/jost_600_italic" app:fontWeight="600" app:fontStyle="italic" />
+    <font android:font="@font/jost_700" android:fontWeight="700" android:fontStyle="normal" app:font="@font/jost_700" app:fontWeight="700" app:fontStyle="normal" />
+    <font android:font="@font/jost_700_italic" android:fontWeight="700" android:fontStyle="italic" app:font="@font/jost_700_italic" app:fontWeight="700" app:fontStyle="italic" />
+    <font android:font="@font/jost_800" android:fontWeight="800" android:fontStyle="normal" app:font="@font/jost_800" app:fontWeight="800" app:fontStyle="normal" />
+    <font android:font="@font/jost_800_italic" android:fontWeight="800" android:fontStyle="italic" app:font="@font/jost_800_italic" app:fontWeight="800" app:fontStyle="italic" />
+    <font android:font="@font/jost_900" android:fontWeight="900" android:fontStyle="normal" app:font="@font/jost_900" app:fontWeight="900" app:fontStyle="normal" />
+    <font android:font="@font/jost_900_italic" android:fontWeight="900" android:fontStyle="italic" app:font="@font/jost_900_italic" app:fontWeight="900" app:fontStyle="italic" />
+</font-family>

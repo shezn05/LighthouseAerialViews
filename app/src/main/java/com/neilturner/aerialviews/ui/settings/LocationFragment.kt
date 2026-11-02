@@ -8,7 +8,8 @@ import com.neilturner.aerialviews.R
 import com.neilturner.aerialviews.databinding.DialogLocationSearchBinding
 import com.neilturner.aerialviews.models.prefs.GeneralPrefs
 import com.neilturner.aerialviews.services.weather.LocationResponse
-import com.neilturner.aerialviews.services.weather.WeatherService
+import com.neilturner.aerialviews.services.weather.WeatherProvider
+import com.neilturner.aerialviews.ui.AerialApp
 import com.neilturner.aerialviews.ui.controls.MenuStateFragment
 import com.neilturner.aerialviews.ui.helpers.DialogHelper
 import com.neilturner.aerialviews.utils.FirebaseHelper
@@ -18,7 +19,7 @@ import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 class LocationFragment : MenuStateFragment() {
-    private lateinit var weatherService: WeatherService
+    private lateinit var weatherService: WeatherProvider
     private var locationPreference: Preference? = null
 
     override fun onCreatePreferences(
@@ -26,7 +27,7 @@ class LocationFragment : MenuStateFragment() {
         rootKey: String?,
     ) {
         setPreferencesFromResource(R.xml.settings_location, rootKey)
-        weatherService = WeatherService(requireContext())
+        weatherService = (requireContext().applicationContext as AerialApp).createWeatherProvider(requireContext())
 
         lifecycleScope.launch {
             updateSummary()

@@ -1,6 +1,11 @@
 Lighthouse Aerial Views
 Independent modified version maintained by shezn05.
 Initial modifications: 2 November 2026.
+Additional modifications, 2 November 2026: bundled Jost typography throughout the
+Lighthouse UI, fixed clock/date/weather layout and Open-Meteo weather with solar
+times for Umhlanga Rocks. The upstream weather provider remains available to
+the original build flavors. See bundled font and weather notices for their
+separate licences and attribution.
 
 Based on Aerial Views 1.8.5 by Neil Turner:
 https://github.com/theothernt/AerialViews
