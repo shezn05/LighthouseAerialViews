@@ -154,6 +154,10 @@ It only builds the development flavor and never publishes a release.
 
 ## Live verification before calling a release stable
 
+Keep the running record in [the check list](docs/LIGHTHOUSE-CHECKLIST.md). The user has requested
+one comprehensive check when they explicitly give the go-ahead. Accumulate pending checks as work
+continues and preserve their viewing session during any necessary TV interruption.
+
 - Coexistence with the original Aerial Views package; correct launcher name/icon/banner.
 - Settings navigation, D-pad focus, Back, preview launch and exit.
 - Actual system-managed DreamService start, idle timeout, wake and repeat activation.

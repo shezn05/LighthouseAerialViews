@@ -1,6 +1,15 @@
 # Aerial Views — AGENTS.md
 
 ## Lighthouse fork (takes precedence for the custom app)
+- User testing/viewing workflow (2 November 2026): maintain `docs/LIGHTHOUSE-CHECKLIST.md` as work
+  proceeds. Defer the comprehensive check until the user explicitly says to run it; the verification
+  commands below are the eventual check, not a requirement to run the full suite after every edit.
+  Use non-disruptive targeted local checks when necessary and record deferred checks and findings.
+- Do not interrupt what the user is watching for routine testing. The user permits an interruption
+  only when genuinely necessary. Before interrupting, capture the current app, content and playback
+  position/resume state where available. Afterwards return to that content and position and verify
+  playback. If restoration cannot be established reliably, obtain the missing information first;
+  do not promise restoration or blindly send Home/Back. No TV interaction is needed to maintain notes.
 - Read `LIGHTHOUSE.md`. Custom builds use `lighthouseDebug` / `lighthouseRelease`; use `betaDebug`
   only in a separate, untouched upstream checkout for comparison.
 - Verify with `./gradlew :app:testLighthouseDebugUnitTest :app:lintKotlin :app:assembleLighthouseDebug`.
